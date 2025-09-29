@@ -14,7 +14,7 @@ provider "azurerm" {
 
 resource "azurerm_resource_group" "rg" {
   
-  name = "my-dummy-rg"
+  name = "my_r_gr"
   location = "westeurope"
 
 }
