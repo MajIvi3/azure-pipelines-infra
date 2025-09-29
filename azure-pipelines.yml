@@ -1,0 +1,38 @@
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: TerraformInstaller@1
+  inputs:
+    terraformVersion: 'latest'
+
+
+- task: TerraformTask@5
+  inputs:
+    provider: 'azurerm'
+    command: 'init'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/IaC'
+    backendServiceArm: 'Azure subscription 1(aa63a116-ceb6-417e-bbc3-caa5dcd966df)'
+    backendAzureRmOverrideSubscriptionID: 'aa63a116-ceb6-417e-bbc3-caa5dcd966df'
+    backendAzureRmStorageAccountName: 'my_s_gr'
+    backendAzureRmContainerName: 'my_container'
+    backendAzureRmKey: 'mykey.state'
+
+
+- task: TerraformTask@5
+  inputs:
+    provider: 'azurerm'
+    command: 'plan'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/IaC'
+    environmentServiceNameAzureRM: 'Azure subscription 1(aa63a116-ceb6-417e-bbc3-caa5dcd966df)'
+    environmentAzureRmOverrideSubscriptionID: 'aa63a116-ceb6-417e-bbc3-caa5dcd966df'
+
+- task: TerraformTask@5
+  inputs:
+    provider: 'azurerm'
+    command: 'apply'
+    environmentServiceNameAzureRM: 'Azure subscription 1(aa63a116-ceb6-417e-bbc3-caa5dcd966df)'
+    environmentAzureRmOverrideSubscriptionID: 'aa63a116-ceb6-417e-bbc3-caa5dcd966df'
