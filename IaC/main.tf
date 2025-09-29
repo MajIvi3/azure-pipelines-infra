@@ -11,7 +11,7 @@ provider "azurerm" {
     features {}
 }
 
-resource "azurerm_resource_group" "rg" {
+resource "azurerm_resource_group" "rg1" {
   name = "resource_nr1"
   location = "westeurope"
   tags = { 
@@ -20,7 +20,7 @@ resource "azurerm_resource_group" "rg" {
   
 }
 
-resource "azurerm_resource_group" "rg" {
+resource "azurerm_resource_group" "rg2" {
     name = "resourcenr2"
   location = "westeurope"
   tags = { 
