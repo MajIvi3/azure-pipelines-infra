@@ -34,5 +34,6 @@ steps:
   inputs:
     provider: 'azurerm'
     command: 'apply'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/IaC'
     environmentServiceNameAzureRM: 'Azure subscription 1(aa63a116-ceb6-417e-bbc3-caa5dcd966df)'
     environmentAzureRmOverrideSubscriptionID: 'aa63a116-ceb6-417e-bbc3-caa5dcd966df'
