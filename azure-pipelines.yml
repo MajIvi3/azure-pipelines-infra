@@ -10,7 +10,8 @@ steps:
     terraformVersion: 'latest'
 
 
-- task: TerraformInit@5
+- task: TerraformTask@5
+  displayName: terraform init
   inputs:
     provider: 'azurerm'
     command: 'init'
@@ -22,7 +23,8 @@ steps:
     backendAzureRmKey: 'mykey.state'
 
 
-- task: TerraformPlan@5
+- task: TerraformTask@5
+  displayName: terraform plan
   inputs:
     provider: 'azurerm'
     command: 'plan'
@@ -30,7 +32,8 @@ steps:
     environmentServiceNameAzureRM: 'Azure subscription 1(aa63a116-ceb6-417e-bbc3-caa5dcd966df)'
     environmentAzureRmOverrideSubscriptionID: 'aa63a116-ceb6-417e-bbc3-caa5dcd966df'
 
-- task: TerraformApply@5
+- task: TerraformTask@5
+  displayName: terraform apply
   inputs:
     provider: 'azurerm'
     command: 'apply'
