@@ -25,7 +25,7 @@ resource "azurerm_resource_group" "rg1" {
 }
 
 resource "azurerm_resource_group" "rg2" {
-    name = "resourcenr2"
+  name = "resourcenr2"
   location = "westeurope"
   tags = { 
     name = "nr2"
@@ -33,7 +33,7 @@ resource "azurerm_resource_group" "rg2" {
 }
 
 resource "azurerm_storage_account" "storage1" {
-  name                     = "storage2"
+  name                     = "storage1"
   resource_group_name      = azurerm_resource_group.rg1.name
   location                 = azurerm_resource_group.rg1.location
   account_tier             = "Standard"
